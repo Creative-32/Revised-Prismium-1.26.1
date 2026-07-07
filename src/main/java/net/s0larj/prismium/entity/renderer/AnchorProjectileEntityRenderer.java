@@ -1,7 +1,14 @@
 package net.s0larj.prismium.entity.renderer;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.math.Axis;
+import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.LivingEntityRenderer;
+import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
+import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.Identifier;
 import net.s0larj.prismium.Prismium;
 import net.s0larj.prismium.entity.custom.AnchorProjectileEntity;
@@ -10,7 +17,7 @@ import net.s0larj.prismium.entity.state.AnchorProjectileEntityRenderState;
 import net.s0larj.prismium.entity.model.AnchorProjectileEntityModel;
 
 public class AnchorProjectileEntityRenderer extends EntityRenderer<AnchorProjectileEntity, AnchorProjectileEntityRenderState> {
-    private static final Identifier TEXTURE = Identifier.fromNamespaceAndPath(Prismium.MOD_ID, "textures/entity/mini_golem.png");
+    private static final Identifier TEXTURE = Identifier.fromNamespaceAndPath(Prismium.MOD_ID, "textures/entity/anchor_projectile.png");
     private final AnchorProjectileEntityModel model;
 
     public AnchorProjectileEntityRenderer(EntityRendererProvider.Context context) {
@@ -19,7 +26,23 @@ public class AnchorProjectileEntityRenderer extends EntityRenderer<AnchorProject
     }
 
     @Override
+    public void submit(AnchorProjectileEntityRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, CameraRenderState camera) {
+        poseStack.pushPose();
+        poseStack.mulPose(Axis.YP.rotationDegrees(state.yRot));
+        poseStack.mulPose(Axis.ZP.rotationDegrees(state.xRot));
+        submitNodeCollector.submitModel(this.model, state, poseStack, TEXTURE, state.lightCoords, OverlayTexture.NO_OVERLAY, state.outlineColor, (ModelFeatureRenderer.CrumblingOverlay)null);
+        poseStack.popPose();
+        super.submit(state, poseStack, submitNodeCollector, camera);
+    }
+
+    @Override
     public AnchorProjectileEntityRenderState createRenderState() {
         return new AnchorProjectileEntityRenderState();
+    }
+
+    public void extractRenderState(final AnchorProjectileEntity entity, final AnchorProjectileEntityRenderState state, final float partialTicks) {
+        super.extractRenderState(entity, state, partialTicks);
+        state.xRot = entity.getXRot(partialTicks);
+        state.yRot = entity.getYRot(partialTicks);
     }
 }

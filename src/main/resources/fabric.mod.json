@@ -20,6 +20,9 @@
 		],
 		"fabric-datagen": [
 			"net.s0larj.prismium.PrismiumDataGenerator"
+		],
+		"client": [
+			"net.s0larj.prismium.entity.ModCustomEntityClient"
 		]
 	},
 	"mixins": [

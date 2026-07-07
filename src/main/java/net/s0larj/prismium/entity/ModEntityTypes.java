@@ -11,14 +11,12 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.MobCategory;
 
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
-
 public class ModEntityTypes {
 
     public static final EntityType<AnchorProjectileEntity> ANCHOR_PROJECTILE = registerEntity(
             "anchor_projectile",
             EntityType.Builder.<AnchorProjectileEntity>of(AnchorProjectileEntity::new, MobCategory.MISC)
-                    .sized(0.5f,1.15f)
+                    .sized(0.5f,0.7f)
     );
 
     private static <T extends Entity> EntityType<T> registerEntity (String name, EntityType.Builder<T> builder) {

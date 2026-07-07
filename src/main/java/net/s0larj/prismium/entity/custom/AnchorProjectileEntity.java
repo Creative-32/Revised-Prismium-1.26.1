@@ -100,28 +100,4 @@ public class AnchorProjectileEntity extends AbstractArrow {
         return this.hookedEntity != null;
     }
 
-    @Override
-    protected void onHitBlock(BlockHitResult hitResult) {
-        super.onHitBlock(hitResult);
-
-        if (hitResult.getDirection() == Direction.SOUTH) {
-            groundedOffset = new Vector2f(215f,180f);
-        }
-        if (hitResult.getDirection() == Direction.NORTH) {
-            groundedOffset = new Vector2f(215f,0f);
-        }
-        if (hitResult.getDirection() == Direction.EAST) {
-            groundedOffset = new Vector2f(215f,-90f);
-        }
-        if (hitResult.getDirection() == Direction.WEST) {
-            groundedOffset = new Vector2f(215f,90f);
-        }
-        if (hitResult.getDirection() == Direction.DOWN) {
-            groundedOffset = new Vector2f(115f,180f);
-        }
-        if (hitResult.getDirection() == Direction.UP) {
-            groundedOffset = new Vector2f(285f,180f);
-        }
-    }
-
 }

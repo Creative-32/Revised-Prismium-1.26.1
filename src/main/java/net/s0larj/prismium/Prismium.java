@@ -5,7 +5,6 @@ import net.fabricmc.api.ModInitializer;
 import net.s0larj.prismium.block.ModBlocks;
 import net.s0larj.prismium.creativemodetab.ModCreativeModeTabs;
 import net.s0larj.prismium.data.ModDataComponents;
-import net.s0larj.prismium.entity.ModCustomEntityClient;
 import net.s0larj.prismium.entity.ModEntityTypes;
 import net.s0larj.prismium.entity.model.ModEntityModelLayers;
 import net.s0larj.prismium.item.ModItems;
@@ -27,7 +26,6 @@ public class Prismium implements ModInitializer {
 		ModBlocks.registerModBlocks();
 		ModEntityTypes.registerModEntityTypes();
 		ModDataComponents.registerDataCompontents();
-		ModEntityModelLayers.registerModelLayers();
 	}
 
 }

@@ -40,7 +40,7 @@ public class AnchorItem extends Item {
             anchorProjectile = new AnchorProjectileEntity(level, player, itemStack);
             itemStack.set(ModDataComponents.ANC, anchorProjectile.getUUID());
             anchorProjectile.getWeaponItem().set(ModDataComponents.ANC, anchorProjectile.getUUID());
-            anchorProjectile.shoot(player.getX(), player.getY(), player.getZ(), 2.0F, 1.0F);
+            anchorProjectile.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0f, 2.0F, 1.0F);
             level.addFreshEntity(anchorProjectile);
         }
         return InteractionResult.SUCCESS;
