@@ -1,4 +1,4 @@
-package net.s0larj.prismium.entity.model;// Made with Blockbench 5.1.4
+// Made with Blockbench 5.1.4
 // Exported for Minecraft version 1.17 or later with Mojang mappings
 // Paste this class into your mod and generate all required imports
 
@@ -11,16 +11,14 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.Entity;
-import net.s0larj.prismium.Prismium;
-import net.s0larj.prismium.entity.renderer.AnchorProjectileEntityRenderer;
 
-public class AnchorProjectileEntityModel<T extends Entity> extends EntityModel<AnchorProjectileEntityRenderer> {
+public class AnchorProjectileEntityModel<T extends Entity> extends EntityModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocationfromNamespaceAndPath(Prismium.MOD_ID, "anchor_projectile"), "main");
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "anchor_projectile"), "main");
 	private final ModelPart bb_main;
 
 	public AnchorProjectileEntityModel(ModelPart root) {
-        this.bb_main = root.getChild("bb_main");
+		this.bb_main = root.getChild("bb_main");
 	}
 
 	public static LayerDefinition createBodyLayer() {
