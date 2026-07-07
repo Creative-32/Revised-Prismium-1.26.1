@@ -24,7 +24,7 @@ public class AnchorProjectileEntity extends AbstractArrow {
     }
 
     public AnchorProjectileEntity(Level level, Player player, ItemStack itemStack) {
-        super(ModEntityTypes.ANCHOR, player, level, itemStack, itemStack);
+        super(ModEntityTypes.ANCHOR_PROJECTILE, player, level, itemStack, itemStack);
         this.pickup = Pickup.DISALLOWED;
     }
 

@@ -1,6 +1,7 @@
 // 26.1.2	-999999999-01-01T00:00:00	Prismium/Model Definitions
 3a4e18a2840fc0d7e0c2a0aa0946648afe1849c1 assets/prismium/blockstates/prismium_block.json
 a2f7cbbd24526e01f6642563f37fd20d7fed9411 assets/prismium/blockstates/temp.json
+e149e3fa7937c9999b211b5ac1dd7d9d0b8bf542 assets/prismium/items/anchor_item.json
 270c6480aa98262896bd7da52859aa4a139c24d2 assets/prismium/items/prismium.json
 ede8e2502c3e54ca51d1c32a3898a941021d6f91 assets/prismium/items/prismium_block.json
 d0ebb036f3c66b43eab9818d47ffdef6a7fd3463 assets/prismium/items/temp.json

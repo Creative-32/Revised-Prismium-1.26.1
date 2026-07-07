@@ -2,6 +2,7 @@ package net.s0larj.prismium.entity.model;
 
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.resources.Identifier;
+import net.s0larj.prismium.entity.model.AnchorProjectileEntityModel;
 
 import net.fabricmc.fabric.api.client.rendering.v1.ModelLayerRegistry;
 import net.s0larj.prismium.Prismium;
