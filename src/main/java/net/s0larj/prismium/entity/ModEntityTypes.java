@@ -16,7 +16,7 @@ public class ModEntityTypes {
     public static final EntityType<AnchorProjectileEntity> ANCHOR_PROJECTILE = registerEntity(
             "anchor_projectile",
             EntityType.Builder.<AnchorProjectileEntity>of(AnchorProjectileEntity::new, MobCategory.MISC)
-                    .sized(0.5f,0.7f)
+                    .sized(0.5f,0.5f)
     );
 
     private static <T extends Entity> EntityType<T> registerEntity (String name, EntityType.Builder<T> builder) {
