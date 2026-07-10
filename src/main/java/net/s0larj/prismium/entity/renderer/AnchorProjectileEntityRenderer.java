@@ -17,7 +17,7 @@ import net.s0larj.prismium.entity.state.AnchorProjectileEntityRenderState;
 import net.s0larj.prismium.entity.model.AnchorProjectileEntityModel;
 
 public class AnchorProjectileEntityRenderer extends EntityRenderer<AnchorProjectileEntity, AnchorProjectileEntityRenderState> {
-    private static final Identifier TEXTURE = Identifier.fromNamespaceAndPath(Prismium.MOD_ID, "textures/entity/anchor_projectile.png");
+    public static final Identifier TEXTURE = Identifier.fromNamespaceAndPath(Prismium.MOD_ID, "textures/entity/anchor_projectile.png");
     private final AnchorProjectileEntityModel model;
 
     public AnchorProjectileEntityRenderer(EntityRendererProvider.Context context) {

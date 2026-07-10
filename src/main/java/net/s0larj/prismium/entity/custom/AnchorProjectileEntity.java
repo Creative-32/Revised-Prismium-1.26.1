@@ -18,21 +18,6 @@ import org.joml.Vector2f;
 public class AnchorProjectileEntity extends AbstractArrow {
 
     private Entity hookedEntity;
-    public double orgX;
-    public double orgY;
-    public double orgZ;
-    public double xDiff;
-    public double yDiff;
-    public double zDiff;
-    public double hookX;
-    public double hookY;
-    public double hookZ;
-    public float orgXRot;
-    public float orgYRot;
-    public float xRotDiff;
-    public float yRotDiff;
-    public float hookXRot;
-    public float hookYRot;
 
     public AnchorProjectileEntity(EntityType<? extends AbstractArrow> type, Level level) {
         super(type, level);
@@ -63,7 +48,7 @@ public class AnchorProjectileEntity extends AbstractArrow {
         super.tick();
 
         if (this.hookedEntity != null){
-            this.setPos(this.hookedEntity.getX() - this.xDiff, this.hookedEntity.getY() + this.yDiff, this.hookedEntity.getZ() - this.zDiff);
+            this.setPos(this.hookedEntity.getX(), this.hookedEntity.getY(), this.hookedEntity.getZ());
             this.setRot(this.hookedEntity.getYRot(), this.hookedEntity.getXRot());
         }
 
@@ -97,45 +82,8 @@ public class AnchorProjectileEntity extends AbstractArrow {
             this.setDeltaMovement(this.getDeltaMovement().scale(0));
             //set hooked to mob that was hit
             if(entity.isAlive()){
-                this.orgX = this.getX();
-                this.orgY = this.getY();
-                this.orgZ = this.getZ();
-                this.orgXRot = this.getXRot();
-                this.orgYRot = this.getYRot();
-
                 this.hookedEntity = entity;
-                this.hookX = this.hookedEntity.getX();
-                this.hookY = this.hookedEntity.getY();
-                this.hookZ = this.hookedEntity.getZ();
-                this.hookXRot = this.hookedEntity.getXRot();
-                this.hookYRot = this.hookedEntity.getYRot();
-
                 this.setNoGravity(true);
-                this.xDiff = this.orgX - this.hookX;
-                this.yDiff = this.orgY - this.hookY;
-                this.zDiff = this.orgY - this.hookZ;
-
-                /*
-                if (this.orgXRot > this.hookXRot){
-                    if (this.orgYRot > this.hookYRot){
-                        this.xRotDiff = this.orgXRot - this.hookXRot;
-                        this.yRotDiff = this.orgYRot - this.hookYRot;
-                    }else if (this.orgYRot < this.hookYRot){
-                        this.xRotDiff = this.orgXRot - this.hookXRot;
-                        this.yRotDiff = this.orgYRot + this.hookYRot;
-                    }
-
-                }else if (this.orgXRot < this.hookXRot) {
-                    if (this.orgYRot > this.hookYRot) {
-                        this.xRotDiff = this.orgXRot + this.hookXRot;
-                        this.yRotDiff = this.orgYRot - this.hookYRot;
-                    } else if (this.orgYRot < this.hookYRot) {
-                        this.xRotDiff = this.orgXRot + this.hookXRot;
-                        this.yRotDiff = this.orgYRot + this.hookYRot;
-                    }
-                }
-
-                 */
             }
         }
         if (currentOwner instanceof LivingEntity livingOwner) {
