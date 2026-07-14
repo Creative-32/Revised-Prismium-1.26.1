@@ -15,6 +15,8 @@ import net.s0larj.prismium.Prismium;
 import net.s0larj.prismium.entity.ModEntityTypes;
 import org.joml.Vector2f;
 
+import static net.s0larj.prismium.attachment.ModAttachments.HOOKED;
+
 public class AnchorProjectileEntity extends AbstractArrow {
 
     private Entity hookedEntity;
@@ -83,6 +85,7 @@ public class AnchorProjectileEntity extends AbstractArrow {
             //set hooked to mob that was hit
             if(entity.isAlive()){
                 this.hookedEntity = entity;
+                this.hookedEntity.setAttached(HOOKED, true);
                 this.setNoGravity(true);
             }
         }

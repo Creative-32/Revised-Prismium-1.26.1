@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.attachment.v1.AttachmentRegistry;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentType;
 import net.minecraft.resources.Identifier;
 import net.s0larj.prismium.Prismium;
+import net.s0larj.prismium.entity.custom.AnchorProjectileEntity;
 
 public class ModAttachments {
 
