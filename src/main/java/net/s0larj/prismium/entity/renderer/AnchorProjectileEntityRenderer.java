@@ -45,9 +45,7 @@ public class AnchorProjectileEntityRenderer extends EntityRenderer<AnchorProject
 
     public void extractRenderState(final AnchorProjectileEntity entity, final AnchorProjectileEntityRenderState state, final float partialTicks) {
         super.extractRenderState(entity, state, partialTicks);
-        if (entity.isHooked()){
-            state.hooked = true;
-        }
+        state.hooked = entity.isHooked();
         state.xRot = entity.getXRot(partialTicks);
         state.yRot = entity.getYRot(partialTicks);
         state.shake = (float)entity.shakeTime - partialTicks;
