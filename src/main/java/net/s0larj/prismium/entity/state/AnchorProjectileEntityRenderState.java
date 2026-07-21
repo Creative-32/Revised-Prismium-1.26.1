@@ -6,4 +6,5 @@ public class AnchorProjectileEntityRenderState extends EntityRenderState {
     public float xRot;
     public float yRot;
     public float shake;
+    public boolean hooked;
 }

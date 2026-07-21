@@ -28,7 +28,7 @@ import java.util.function.Function;
 public class AnchorProjectileEntityLayer<M extends LivingEntityRenderState> extends ProjectileEntityLayer<M, AnchorProjectileEntityRenderState> {
 
     public AnchorProjectileEntityLayer(final LivingEntityRenderer<?, M, EntityModel<EntityRenderState>> renderer, final EntityRendererProvider.Context context) {
-        super(renderer, new AnchorProjectileEntityModel(context.bakeLayer(ModEntityModelLayers.ANCHOR_PROJECTILE)), new AnchorProjectileEntityRenderState(), Identifier.fromNamespaceAndPath(Prismium.MOD_ID, "textures/entity/anchor_projectile.png"), ProjectileEntityLayer.PlacementStyle.IN_CUBE);
+        super(renderer, new AnchorProjectileEntityModel(context.bakeLayer(ModEntityModelLayers.ANCHOR_PROJECTILE)), new AnchorProjectileEntityRenderState(), Identifier.fromNamespaceAndPath(Prismium.MOD_ID, "textures/entity/anchor_projectile.png"), PlacementStyle.ON_SURFACE);
     }
 
     @Override

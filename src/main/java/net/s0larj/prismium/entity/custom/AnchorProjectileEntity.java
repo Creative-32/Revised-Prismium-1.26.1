@@ -96,10 +96,7 @@ public class AnchorProjectileEntity extends AbstractArrow {
                 this.hookedEntity = entity;
                 this.hookedEntity.setAttached(HOOKED, List.copyOf(Util.make(new ArrayList<>(), (l) -> {
                     l.addAll(this.hookedEntity.getAttachedOrElse(HOOKED, List.of()));
-                    l.add(new AnchorAttachment(this.getUUID(), hitResult.getLocation().subtract(this.hookedEntity.position()), this.getXRot(), this.getYRot()));
-                    IO.println("hit" + hitResult.getLocation());
-                    IO.println("hooked" + this.hookedEntity.position());
-                    IO.println("diff" + hitResult.getLocation().subtract(this.hookedEntity.position()));
+                    l.add(new AnchorAttachment(this.getUUID(), this.hookedEntity.position().add(0,this.hookedEntity.getBbHeight()/2,0).vectorTo(hitResult.getLocation()), this.getXRot(), this.getYRot()));
                 })));
                 this.setNoGravity(true);
             }

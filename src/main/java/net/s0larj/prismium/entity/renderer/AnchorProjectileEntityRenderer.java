@@ -27,6 +27,9 @@ public class AnchorProjectileEntityRenderer extends EntityRenderer<AnchorProject
 
     @Override
     public void submit(AnchorProjectileEntityRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, CameraRenderState camera) {
+        if (state.hooked){
+            return;
+        }
         poseStack.pushPose();
         poseStack.mulPose(Axis.YP.rotationDegrees(state.yRot+180.0F));
         poseStack.mulPose(Axis.XP.rotationDegrees(state.xRot));
@@ -42,6 +45,9 @@ public class AnchorProjectileEntityRenderer extends EntityRenderer<AnchorProject
 
     public void extractRenderState(final AnchorProjectileEntity entity, final AnchorProjectileEntityRenderState state, final float partialTicks) {
         super.extractRenderState(entity, state, partialTicks);
+        if (entity.isHooked()){
+            state.hooked = true;
+        }
         state.xRot = entity.getXRot(partialTicks);
         state.yRot = entity.getYRot(partialTicks);
         state.shake = (float)entity.shakeTime - partialTicks;
